@@ -1,8 +1,12 @@
-import requests, time, json, configparser, smtplib, logging, datetime
+#!/bin/python3
+import requests, time, json, configparser, smtplib, logging, datetime, os
 
-# Reading the keys from the cfauth.ini file
+# Reading the keys from the cfauth.ini file. The path is constructed based on
+# where this script is located so that the script can be run from anywhere.
+dirname = os.path.dirname(__file__)
+configpath = os.path.join(dirname, 'cfauth.ini')
 config = configparser.ConfigParser()
-config.read('cfauth.ini')
+config.read(configpath)
 
 zone_id = config.get('tokens', 'zone_id')
 bearer_token = config.get('tokens', 'bearer_token')

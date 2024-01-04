@@ -1,0 +1,6 @@
+# Ignore config file to avoid committing keys, but keep example file
+cfauth.ini
+
+# IntelliJ, etc.
+.idea/
+
